@@ -2,20 +2,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".BookSearchActivity">
+
+    <item
+        android:id="@+id/favorite"
+        android:icon="@drawable/ic_bookmark"
+        android:title="@string/favorite"
+        android:contentDescription="@string/content_description_favorite"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/search_icon"
+        android:title="@string/search"
+        android:icon="@drawable/ic_action_search"
+        app:showAsAction="ifRoom|withText" />
+    <!--    showAsAction="ifRoom" option is needed to show the item directly in the action bar as an icon. -->
+    <!--    If there's not enough room for the item in the action bar, it will appear in the action overflow-->
+    <!--    If "withText" is specified, the text will be displayed with the icon-->
+
     <item
         android:id="@+id/action_settings"
         android:title="@string/action_settings"
         android:orderInCategory="100"
         app:showAsAction="never" />
 
-    <item
-        android:id="@+id/search_icon"
-        android:title="Search"
-        android:icon="@drawable/ic_action_search"
-        android:onClick="onSearchAction"
-        app:showAsAction="ifRoom|withText" />
-<!--    showAsAction="ifRoom" option is needed to show the item directly in the action bar as an icon. -->
-<!--    If there's not enough room for the item in the action bar, it will appear in the action overflow-->
-<!--    If "withText" is specified, the text will be displayed with the icon-->
+
 
 </menu>

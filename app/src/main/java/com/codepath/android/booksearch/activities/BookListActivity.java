@@ -142,11 +142,13 @@ public class BookListActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+        if (id == R.id.search_icon) {
+            return true;
+        }
+        if (id == R.id.favorite) {
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void onSearchAction(MenuItem item) {
-
     }
 }
