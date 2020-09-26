@@ -1,6 +1,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".BookSearchActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".BookSearchActivity">
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/search_icon"
+        android:title="Search"
+        android:icon="@drawable/ic_action_search"
+        android:onClick="onSearchAction"
+        app:showAsAction="ifRoom|withText" />
+<!--    showAsAction="ifRoom" option is needed to show the item directly in the action bar as an icon. -->
+<!--    If there's not enough room for the item in the action bar, it will appear in the action overflow-->
+<!--    If "withText" is specified, the text will be displayed with the icon-->
+
 </menu>

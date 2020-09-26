@@ -24,6 +24,7 @@ import java.util.ArrayList;
 
 import okhttp3.Headers;
 
+import androidx.appcompat.widget.Toolbar;
 
 public class BookListActivity extends AppCompatActivity {
     private RecyclerView rvBooks;
@@ -38,6 +39,22 @@ public class BookListActivity extends AppCompatActivity {
 
         rvBooks = findViewById(R.id.rvBooks);
         abooks = new ArrayList<>();
+
+        /*
+         * Using ToolBar as Action Bar
+         */
+
+        // Find the toolbar view inside the activity layout
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        // Sets the Toolbar to act as the ActionBar for this Activity window.
+        // Make sure the toolbar exists in the activity and is not null
+        setSupportActionBar(toolbar);
+
+        // Display the app icon in the toolbar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.ic_launcher);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
 
         // Initialize the adapter
         bookAdapter = new BookAdapter(this, abooks);
@@ -105,6 +122,8 @@ public class BookListActivity extends AppCompatActivity {
         });
     }
 
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -125,5 +144,9 @@ public class BookListActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onSearchAction(MenuItem item) {
+
     }
 }
