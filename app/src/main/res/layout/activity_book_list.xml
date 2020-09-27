@@ -19,7 +19,8 @@
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        app:titleTextColor="@android:color/white">
+        app:titleTextColor="@android:color/white"
+        app:collapseIcon="@drawable/ic_back_arrow" >
     </androidx.appcompat.widget.Toolbar>
 
 

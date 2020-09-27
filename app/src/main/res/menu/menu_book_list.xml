@@ -9,15 +9,18 @@
         android:title="@string/favorite"
         android:contentDescription="@string/content_description_favorite"
         app:showAsAction="ifRoom" />
-
-    <item
-        android:id="@+id/search_icon"
-        android:title="@string/search"
-        android:icon="@drawable/ic_action_search"
-        app:showAsAction="ifRoom|withText" />
     <!--    showAsAction="ifRoom" option is needed to show the item directly in the action bar as an icon. -->
     <!--    If there's not enough room for the item in the action bar, it will appear in the action overflow-->
     <!--    If "withText" is specified, the text will be displayed with the icon-->
+
+    <item
+        android:id="@+id/action_search"
+        android:orderInCategory="5"
+        android:title="@string/search"
+        android:icon="@drawable/ic_action_search"
+        app:showAsAction="always|collapseActionView"
+        app:actionViewClass="androidx.appcompat.widget.SearchView" />
+    <!--  "collapseActionView" value collapses the search into an icon until clicked-->
 
     <item
         android:id="@+id/action_settings"
