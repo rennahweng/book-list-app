@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.core.app.NavUtils;
 import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,7 +47,6 @@ public class BookListActivity extends AppCompatActivity {
         /*
          * Using ToolBar as Action Bar
          */
-
         // Find the toolbar view inside the activity layout
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         // Sets the Toolbar to act as the ActionBar for this Activity window.
@@ -58,6 +58,8 @@ public class BookListActivity extends AppCompatActivity {
         getSupportActionBar().setLogo(R.drawable.ic_launcher);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
+        // Enable "up-arrow" icon in toolbar, leads to home view
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Initialize the adapter
         bookAdapter = new BookAdapter(this, abooks);
@@ -156,6 +158,8 @@ public class BookListActivity extends AppCompatActivity {
             item.expandActionView();
             searchView.requestFocus();
 
+            // This handles firing a query with the data provider as
+            // the user starts typing in the SearchView.
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 @Override
                 public boolean onQueryTextSubmit(String query) {
@@ -171,12 +175,21 @@ public class BookListActivity extends AppCompatActivity {
 
                 @Override
                 public boolean onQueryTextChange(String newText) {
+                    fetchBooks(newText);
                     return false;
                 }
             });
-
             return true;
         }
+
+//        // The Up-Arrow button
+//        if (id == android.R.id.home) {
+//            Log.i("OnOptionsItemSelected", "home");
+//            NavUtils.navigateUpFromSameTask(this);
+//            // overridePendingTransition(R.animator.anim_left, R.animator.anim_right);
+//            return true;
+//        }
+
         return super.onOptionsItemSelected(item);
     }
 }
